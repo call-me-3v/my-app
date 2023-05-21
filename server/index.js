@@ -1,23 +1,46 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+let express = require("express");
+let mongoose = require("mongoose");
+let cors = require("cors");
+let bodyParser = require("body-parser");
 
-const db = require("./db");
-const movieRouter = require("./routes/movie-router");
+// Express Route
+const studentRoute = require("../backend/routes/student.route");
+
+// Connecting mongoDB Database
+mongoose
+  .connect("mongodb://127.0.0.1:27017/mydatabase")
+  .then((x) => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch((err) => {
+    console.error("Error connecting to mongo", err.reason);
+  });
 
 const app = express();
-const apiPort = 8000;
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(cors());
+app.use("/students", studentRoute);
 
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+// PORT
+const port = process.env.PORT || 4000;
+const server = app.listen(port, () => {
+  console.log("Connected to port " + port);
 });
 
-app.use("/api", movieRouter);
+// 404 Error
+app.use((req, res, next) => {
+  next(createError(404));
+});
 
-app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
+app.use(function (err, req, res, next) {
+  console.error(err.message);
+  if (!err.statusCode) err.statusCode = 500;
+  res.status(err.statusCode).send(err.message);
+});
