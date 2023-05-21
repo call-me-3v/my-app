@@ -5,10 +5,10 @@ import "./App.css";
 import Sidebar from "./components/Sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Analytics from "./pages/Analytics.jsx";
-import Product from "./pages/Tenant.jsx";
-import ProductList from "./pages/Apartment.jsx";
+import Tenant from "./pages/Tenant.jsx";
+import Apartment from "./pages/Apartment.jsx";
 import About from "./pages/About.jsx";
-import Comment from "./pages/Complaint.jsx";
+import Complaint from "./pages/Complaint.jsx";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -26,9 +26,9 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/productlist" element={<ProductList />} />
-          <Route path="/comment" element={<Comment />} />
+          <Route path="/tenant" element={<Tenant />} />
+          <Route path="/apartment" element={<Apartment />} />
+          <Route path="/complaint" element={<Complaint />} />
           <Route path="/about" element={<About />} />
         </Routes>
         {message}

@@ -10,13 +10,13 @@ const Tenant = () => {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a href="/tenants" className="navbar-brand">
-          bezKoder
+        <a href="/" className="navbar-brand">
+          PERPETUUM RICA VENTURES (AMS)
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink to={"/tenants"} className="nav-link">
-              Tutorials
+            <NavLink to={"/tenant"} className="nav-link">
+              Tenant
             </NavLink>
           </li>
           <li className="nav-item">
