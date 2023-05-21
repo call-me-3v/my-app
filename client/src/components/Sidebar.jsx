@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 import {
   FaTh,
@@ -31,18 +31,18 @@ const Sidebar = ({ children }) => {
       icon: <FaRegChartBar />,
     },
     {
-      path: "/comment",
-      name: "Comment",
+      path: "/complaint",
+      name: "Complaint",
       icon: <FaCommentAlt />,
     },
     {
-      path: "/product",
-      name: "Product",
+      path: "/tenant",
+      name: "Tenant",
       icon: <FaShoppingBag />,
     },
     {
-      path: "/productList",
-      name: "Product List",
+      path: "/apartment",
+      name: "Apartment",
       icon: <FaThList />,
     },
   ];

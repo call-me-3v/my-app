@@ -5,10 +5,10 @@ import "./App.css";
 import Sidebar from "./components/Sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Analytics from "./pages/Analytics.jsx";
-import Product from "./pages/Product.jsx";
-import ProductList from "./pages/ProductList.jsx";
+import Product from "./pages/Tenant.jsx";
+import ProductList from "./pages/Apartment.jsx";
 import About from "./pages/About.jsx";
-import Comment from "./pages/Comment.jsx";
+import Comment from "./pages/Complaint.jsx";
 
 function App() {
   const [message, setMessage] = useState("");
