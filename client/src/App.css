@@ -1,19 +1,23 @@
+body {
+background-image: linear-gradient(to right, rgba(109, 179, 242, .5), rgba(109, 179, 242, .5)), url("./images/apartment001.jpg");
+background-size: cover;
+}
 *{
-    margin:0;
+    margin:0 !important;
     padding:0;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 .container{
     display:flex;
 }
 main{
-    width: 100%;
-    padding: 20px;
+    width: 100% !important;
+    padding: 20px !important;
 }
 .sidebar{
     background: #000;
     color: #fff;
-    height: 100vh;
+    height: 100vh !important;
     width: 200px;
     transition: all 0.5s;
 }

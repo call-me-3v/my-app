@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -10,15 +10,7 @@ import Apartment from "./pages/Apartment.jsx";
 import About from "./pages/About.jsx";
 import Complaint from "./pages/Complaint.jsx";
 
-function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:8000/message")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
+const App = (props) => {
   return (
     <BrowserRouter>
       <Sidebar>
@@ -26,15 +18,14 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/tenant" element={<Tenant />} />
+          <Route path="/tenant/*" element={<Tenant />} />
           <Route path="/apartment" element={<Apartment />} />
           <Route path="/complaint" element={<Complaint />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        {message}
       </Sidebar>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
